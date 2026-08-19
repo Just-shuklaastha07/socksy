@@ -1,52 +1,76 @@
 const products = [
-    {
-        id: 1,
-        name: "Classic White",
-        description: "Soft everyday cotton socks.",
-        price: 299,
-        category: "Everyday",
-        image: "🧦"
-    },
-    {
-        id: 2,
-        name: "Rainbow Vibes",
-        description: "Colorful socks for colorful days.",
-        price: 349,
-        category: "Fun",
-        image: "🌈"
-    },
-    {
-        id: 3,
-        name: "Midnight Black",
-        description: "Classic black socks for every outfit.",
-        price: 399,
-        category: "Everyday",
-        image: "🖤"
-    },
-    {
-        id: 4,
-        name: "Sport Pro",
-        description: "Breathable socks made for active days.",
-        price: 449,
-        category: "Sports",
-        image: "🏃"
-    },
-    {
-        id: 5,
-        name: "Pastel Dreams",
-        description: "Super soft socks in pastel colors.",
-        price: 379,
-        category: "Comfy",
-        image: "🌸"
-    },
-    {
-        id: 6,
-        name: "Coffee Lover",
-        description: "For people who need coffee before anything.",
-        price: 329,
-        category: "Fun",
-        image: "☕"
-    }
+  {
+    id: 1,
+    name: "Everyday Crew",
+    category: "Everyday",
+    price: 299,
+    emoji: "🧦",
+    description: "Soft everyday socks made for all-day comfort.",
+    rating: 4.8,
+  },
+  {
+    id: 2,
+    name: "Sport Flex",
+    category: "Sports",
+    price: 349,
+    emoji: "🏃",
+    description: "Breathable performance socks for active days.",
+    rating: 4.7,
+  },
+  {
+    id: 3,
+    name: "Cozy Clouds",
+    category: "Comfy",
+    price: 399,
+    emoji: "☁️",
+    description: "Super-soft socks for maximum comfort.",
+    rating: 4.9,
+  },
+  {
+    id: 4,
+    name: "Rainbow Pop",
+    category: "Fun",
+    price: 279,
+    emoji: "🌈",
+    description: "Colorful socks to brighten up your outfit.",
+    rating: 4.6,
+  },
+  {
+    id: 5,
+    name: "Classic Black",
+    category: "Everyday",
+    price: 249,
+    emoji: "🖤",
+    description: "A clean and classic pair for every occasion.",
+    rating: 4.8,
+  },
+  {
+    id: 6,
+    name: "Street Style",
+    category: "Fun",
+    price: 329,
+    emoji: "🔥",
+    description: "Bold socks for a bold everyday look.",
+    rating: 4.7,
+  },
+  {
+    id: 7,
+    name: "Athletic Pro",
+    category: "Sports",
+    price: 449,
+    emoji: "⚡",
+    description: "Designed for workouts, running and training.",
+    rating: 4.9,
+  },
+  {
+    id: 8,
+    name: "Winter Warmers",
+    category: "Comfy",
+    price: 499,
+    emoji: "❄️",
+    description: "Warm and cozy socks for chilly days.",
+    rating: 4.9,
+  },
 ];
 
 export default products;

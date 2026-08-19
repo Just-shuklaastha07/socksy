@@ -1,44 +1,45 @@
-import { Link } from "react-router-dom";
-
 function ProductCard({ product }) {
-    return (
-        <div className="product-card">
+  return (
+    <div className="product-card">
 
-            <div className="product-image">
-                {product.image}
-            </div>
+      <div className="product-image">
+        {product.emoji}
+      </div>
 
-            <div className="product-info">
+      <div className="product-info">
 
-                <p className="product-category">
-                    {product.category}
-                </p>
+        <div className="product-category">
+          {product.category}
+        </div>
 
-                <h3>{product.name}</h3>
+        <h3 className="product-name">
+          {product.name}
+        </h3>
 
-                <p className="product-description">
-                    {product.description}
-                </p>
+        <div className="product-rating">
+          ⭐ {product.rating}
+        </div>
 
-                <div className="product-bottom">
+        <p className="product-description">
+          {product.description}
+        </p>
 
-                    <strong>
-                        ₹{product.price}
-                    </strong>
+        <div className="product-bottom">
 
-                    <Link
-                        to={`/product/${product.id}`}
-                        className="view-btn"
-                    >
-                        View →
-                    </Link>
+          <span className="product-price">
+            ₹{product.price}
+          </span>
 
-                </div>
-
-            </div>
+          <button className="add-cart">
+            Add to Cart
+          </button>
 
         </div>
-    );
+
+      </div>
+
+    </div>
+  );
 }
 
 export default ProductCard;

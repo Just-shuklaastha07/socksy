@@ -1,112 +1,112 @@
-import { Link } from "react-router-dom";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
 
 function Home() {
+  const bestsellers = products.slice(0, 4);
 
-    const bestSellers = products.slice(0, 3);
+  return (
+    <>
 
-    return (
-        <main>
+      {/* HERO */}
 
-            {/* HERO SECTION */}
+      <section className="hero">
 
-            <section className="hero">
+        <div className="hero-content">
 
-                <div className="hero-content">
+          <div className="hero-tag">
+            🧦 SOCKSY
+          </div>
 
-                    <p className="eyebrow">
-                        COMFORT STARTS FROM THE GROUND UP
-                    </p>
+          <h1>
+            Step into something comfy.
+          </h1>
 
-                    <h1>
-                        Step into
-                        <span> something comfy.</span>
-                    </h1>
+          <p>
+            Fun, comfortable and affordable socks
+            made for every kind of day.
+          </p>
 
-                    <p className="hero-text">
-                        Fun, comfortable and affordable socks
-                        made for every kind of day.
-                    </p>
+          <a href="/products" className="hero-button">
+            Shop Socks →
+          </a>
 
-                    <Link
-                        to="/products"
-                        className="primary-btn"
-                    >
-                        Shop Socks →
-                    </Link>
+        </div>
 
-                </div>
+        <div className="hero-image">
+          🧦
+        </div>
 
-                <div className="hero-sock">
-                    🧦
-                </div>
-
-            </section>
+      </section>
 
 
-            {/* CATEGORIES */}
+      {/* SHOP BY VIBE */}
 
-            <section className="section">
+      <section className="section">
 
-                <h2>Shop by vibe</h2>
+        <div className="section-heading">
+          <h2>Shop by vibe</h2>
+        </div>
 
-                <div className="categories">
+        <div className="vibe-grid">
 
-                    <div className="category">
-                        <span>🏃</span>
-                        <p>Sports</p>
-                    </div>
+          <div className="vibe-card">
+            <div className="vibe-icon">🏃</div>
+            <h3>Sports</h3>
+            <p>Made to move.</p>
+          </div>
 
-                    <div className="category">
-                        <span>🧸</span>
-                        <p>Comfy</p>
-                    </div>
+          <div className="vibe-card">
+            <div className="vibe-icon">☁️</div>
+            <h3>Comfy</h3>
+            <p>Softness all day.</p>
+          </div>
 
-                    <div className="category">
-                        <span>🌈</span>
-                        <p>Fun</p>
-                    </div>
+          <div className="vibe-card">
+            <div className="vibe-icon">🌈</div>
+            <h3>Fun</h3>
+            <p>Add some color.</p>
+          </div>
 
-                    <div className="category">
-                        <span>🖤</span>
-                        <p>Everyday</p>
-                    </div>
+          <div className="vibe-card">
+            <div className="vibe-icon">🖤</div>
+            <h3>Everyday</h3>
+            <p>Simple & reliable.</p>
+          </div>
 
-                </div>
+        </div>
 
-            </section>
+      </section>
 
 
-            {/* BESTSELLERS */}
+      {/* BESTSELLERS */}
 
-            <section className="section">
+      <section className="section">
 
-                <div className="section-heading">
+        <div className="section-heading">
 
-                    <h2>Bestsellers</h2>
+          <h2>Bestsellers</h2>
 
-                    <Link to="/products">
-                        View all →
-                    </Link>
+          <a href="/products" className="view-all">
+            View all →
+          </a>
 
-                </div>
+        </div>
 
-                <div className="product-grid">
+        <div className="product-grid">
 
-                    {bestSellers.map((product) => (
-                        <ProductCard
-                            key={product.id}
-                            product={product}
-                        />
-                    ))}
+          {bestsellers.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+            />
+          ))}
 
-                </div>
+        </div>
 
-            </section>
+      </section>
 
-        </main>
-    );
+    </>
+  );
 }
 
 export default Home;
