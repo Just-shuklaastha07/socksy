@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 function ProductCard({ product }) {
   return (
     <div className="product-card">
 
       <div className="product-image">
-        {product.emoji}
+        {product.image}
       </div>
 
       <div className="product-info">
@@ -16,10 +18,6 @@ function ProductCard({ product }) {
           {product.name}
         </h3>
 
-        <div className="product-rating">
-          ⭐ {product.rating}
-        </div>
-
         <p className="product-description">
           {product.description}
         </p>
@@ -30,9 +28,12 @@ function ProductCard({ product }) {
             ₹{product.price}
           </span>
 
-          <button className="add-cart">
-            Add to Cart
-          </button>
+          <Link
+            to={`/product/${product._id}`}
+            className="view-btn"
+          >
+            View
+          </Link>
 
         </div>
 
