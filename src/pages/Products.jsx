@@ -7,23 +7,28 @@ function Products() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then((response) => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/products");
+
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
 
-        return response.json();
-      })
-      .then((data) => {
+        const data = await response.json();
+
+        console.log("Products from backend:", data);
+
         setProducts(data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
+      } catch (err) {
+        console.error("Error fetching products:", err);
         setError("Could not load products.");
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   if (loading) {

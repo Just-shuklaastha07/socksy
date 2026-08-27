@@ -1,18 +1,38 @@
-import products from "../data/products";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ProductCard from "../components/ProductCard";
 
 function Home() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch products");
+        }
+
+        return response.json();
+      })
+      .then((data) => {
+        setProducts(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      });
+  }, []);
+
   const bestsellers = products.slice(0, 4);
 
   return (
     <>
-
-      {/* HERO */}
+      {/* HERO SECTION */}
 
       <section className="hero">
-
         <div className="hero-content">
-
           <div className="hero-tag">
             🧦 SOCKSY
           </div>
@@ -22,27 +42,23 @@ function Home() {
           </h1>
 
           <p>
-            Fun, comfortable and affordable socks
-            made for every kind of day.
+            Fun, comfortable and affordable socks made for every kind of day.
           </p>
 
-          <a href="/products" className="hero-button">
+          <Link to="/products" className="hero-button">
             Shop Socks →
-          </a>
-
+          </Link>
         </div>
 
         <div className="hero-image">
           🧦
         </div>
-
       </section>
 
 
       {/* SHOP BY VIBE */}
 
       <section className="section">
-
         <div className="section-heading">
           <h2>Shop by vibe</h2>
         </div>
@@ -74,37 +90,34 @@ function Home() {
           </div>
 
         </div>
-
       </section>
 
 
       {/* BESTSELLERS */}
 
       <section className="section">
-
         <div className="section-heading">
-
           <h2>Bestsellers</h2>
 
-          <a href="/products" className="view-all">
+          <Link to="/products" className="view-all">
             View all →
-          </a>
-
+          </Link>
         </div>
 
-        <div className="product-grid">
-
-          {bestsellers.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-            />
-          ))}
-
-        </div>
+        {loading ? (
+          <p>Loading socks...</p>
+        ) : (
+          <div className="product-grid">
+            {bestsellers.map((product) => (
+              <ProductCard
+                key={product._id}
+                product={product}
+              />
+            ))}
+          </div>
+        )}
 
       </section>
-
     </>
   );
 }
