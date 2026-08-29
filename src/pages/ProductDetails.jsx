@@ -9,6 +9,16 @@ function ProductDetails() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { addToCart } = useCart();
+  const [addedMessage, setAddedMessage] = useState("");
+  const handleAddToCart = () => {
+  addToCart(product);
+
+  setAddedMessage("Added to cart ✓");
+
+  setTimeout(() => {
+    setAddedMessage("");
+  }, 2000);
+};
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/products/${id}`)
@@ -65,10 +75,14 @@ function ProductDetails() {
 
           <button
   className="add-cart"
-  onClick={() => addToCart(product)}
+  onClick={handleAddToCart}
 >
   Add to Cart
 </button>
+
+          {addedMessage && (
+            <p className="added-message">{addedMessage}</p>
+          )}
         </div>
 
       </div>

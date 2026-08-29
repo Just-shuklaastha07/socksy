@@ -725,3 +725,10 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+.added-message {
+  margin-top: 12px;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 14px;
+}
