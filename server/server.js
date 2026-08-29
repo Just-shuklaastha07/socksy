@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const authRoutes = require("./routes/authRoutes");
 
 const productRoutes = require("./routes/productRoutes");
 
@@ -17,7 +18,8 @@ app.get("/", (req, res) => {
     message: "Welcome to Socksy API 🧦",
   });
 });
-
+  
+app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 
 mongoose
