@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
+import MyOrders from "./pages/MyOrders";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/order-success/:id" element={<OrderSuccess />} />
+        <Route path="/my-orders" element={<MyOrders />} />
       </Routes>
     </BrowserRouter>
   );
