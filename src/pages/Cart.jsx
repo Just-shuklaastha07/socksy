@@ -33,7 +33,7 @@ function Cart() {
           {cart.map((item) => (
             <div className="cart-item" key={item._id}>
               <div className="cart-item-image">
-                {item.image}
+                <img src={item.image} alt={item.name} />
               </div>
 
               <div className="cart-item-info">
@@ -42,30 +42,16 @@ function Cart() {
                 <p>₹{item.price}</p>
 
                 <div className="quantity-controls">
-                  <button
-                    onClick={() =>
-                      decreaseQuantity(item._id)
-                    }
-                  >
-                    -
-                  </button>
+                  <button onClick={() => decreaseQuantity(item._id)}>-</button>
 
                   <span>{item.quantity}</span>
 
-                  <button
-                    onClick={() =>
-                      increaseQuantity(item._id)
-                    }
-                  >
-                    +
-                  </button>
+                  <button onClick={() => increaseQuantity(item._id)}>+</button>
                 </div>
 
                 <button
                   className="remove-btn"
-                  onClick={() =>
-                    removeFromCart(item._id)
-                  }
+                  onClick={() => removeFromCart(item._id)}
                 >
                   Remove
                 </button>
@@ -86,10 +72,7 @@ function Cart() {
             <strong> ₹{cartTotal}</strong>
           </p>
 
-          <Link
-            to="/checkout"
-            className="hero-button"
-          >
+          <Link to="/checkout" className="hero-button">
             Proceed to Checkout
           </Link>
         </div>

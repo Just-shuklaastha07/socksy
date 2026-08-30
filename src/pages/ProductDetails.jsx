@@ -53,8 +53,11 @@ function ProductDetails() {
       <div className="product-details-card">
 
         <div className="product-details-image">
-          {product.image}
-        </div>
+  <img
+    src={product.image}
+    alt={product.name}
+  />
+</div>
 
         <div className="product-details-info">
           <p className="product-category">
